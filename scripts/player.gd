@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 130.0
-const JUMP_VELOCITY = -300.0
+const JUMP_VELOCITY = -200.0
 const WALL_JUMP_VELOCITY = -250.0
 const MIDAIR_SPEED = 100.0
 const FRICTION = 0.2
@@ -13,7 +13,6 @@ var paused = false
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var collision_shape = $CollisionShape2D
 @onready var wall_jump_timer = $WallJumpTimer
-
 
 func _physics_process(delta):
 	if paused:
