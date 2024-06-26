@@ -527,6 +527,7 @@ offset = Vector2(0, 180)
 position = Vector2(140, 120)
 collision_mask = 2
 script = ExtResource("7_iw2xk")
+timeline_path = "res://dialogic/timelines/timeline.dtl"
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

@@ -18,10 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Music="*res://scenes/music.tscn"
-<<<<<<< Updated upstream
 SceneManager="*res://addons/scene_manager/scene_manager.tscn"
 Scenes="*res://addons/scene_manager/scenes.gd"
-=======
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
@@ -53,7 +51,6 @@ glossary/default_case_sensitive=true
 variables={}
 layout/style_list=[]
 layout/default_style="res://dialogic/styles/Default_Style.tres"
->>>>>>> Stashed changes
 
 [display]
 
@@ -61,11 +58,7 @@ window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-<<<<<<< Updated upstream
-enabled=PackedStringArray()
-=======
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
->>>>>>> Stashed changes
 
 [input]
 

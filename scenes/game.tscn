@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://cuv4vme4rwno0"]
 
-[ext_resource type="Script" path="res://scripts/Game.gd" id="1_13038"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_163y6"]
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_13038")
+script = ExtResource("1_163y6")
 
 [node name="Button" type="Button" parent="."]
 z_index = -1

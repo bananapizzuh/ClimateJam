@@ -11,8 +11,8 @@ func _process(delta):
 
 
 func load_leval(location: String):
-	print("res://Levals/" + location + ".tscn")
-	leval_load = load("res://Levals/" + location + ".tscn")
+	print("res://levels/" + location + ".tscn")
+	leval_load = load("res://levels/" + location + ".tscn")
 	leval_instence = leval_load.instantiate()
 	add_child(leval_instence)
 	print_tree()
@@ -22,12 +22,12 @@ func load_leval(location: String):
 
 
 func _on_button_pressed():
-	load_leval("leval_1")
+	load_leval("level_1")
 
 
 func _on_button_2_pressed():
 	print("pressed")
-	load_leval("leval_2")
+	load_leval("level_2")
 
 
 func _on_player_death():
