@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Climate Jam"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -21,6 +21,7 @@ Music="*res://scenes/music.tscn"
 SceneManager="*res://addons/scene_manager/scene_manager.tscn"
 Scenes="*res://addons/scene_manager/scenes.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+<<<<<<<UpdatedupstreamSceneManager="*res://addons/scene_manager/scene_manager.tscn"
 
 [dialogic]
 
@@ -51,6 +52,7 @@ glossary/default_case_sensitive=true
 variables={}
 layout/style_list=[]
 layout/default_style="res://dialogic/styles/Default_Style.tres"
+">>>>>>>Stashedchanges[display]window/vsync/vsync_mode"=0
 
 [display]
 
@@ -58,7 +60,8 @@ window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/scene_manager/plugin.cfg")
+<<<<<<<Updatedupstreamenabled=PackedStringArray()
 
 [input]
 

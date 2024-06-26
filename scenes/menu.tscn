@@ -1,20 +1,28 @@
 [gd_scene load_steps=2 format=3 uid="uid://cuv4vme4rwno0"]
 
-[ext_resource type="Script" path="res://scripts/game.gd" id="1_163y6"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_ju6vn"]
 
-[node name="Game" type="Node2D"]
-script = ExtResource("1_163y6")
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ju6vn")
 
 [node name="Button" type="Button" parent="."]
-z_index = -1
-offset_left = 170.0
-offset_top = 290.0
-offset_right = 386.0
-offset_bottom = 357.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -33.5
+offset_right = 108.0
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "Leval 1"
 
 [node name="Button2" type="Button" parent="."]
-z_index = -1
 offset_left = 777.0
 offset_top = 307.0
 offset_right = 993.0
@@ -31,4 +39,3 @@ text = "Menue"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

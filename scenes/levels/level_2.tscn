@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=3 uid="uid://bfaepgdqm0vsy"]
 
-[ext_resource type="Texture2D" uid="uid://jb0x23xqt4pi" path="res://assets/Background/sky_cloud.png" id="1_mm77p"]
-[ext_resource type="Texture2D" uid="uid://damn4836pyjsy" path="res://assets/Background/mountain2.png" id="2_svkcp"]
-[ext_resource type="Texture2D" uid="uid://ctkdjgbo870nr" path="res://assets/Background/pine1.png" id="3_toc7m"]
-[ext_resource type="Texture2D" uid="uid://cud66bnt0btmu" path="res://assets/Background/pine2.png" id="4_bpuld"]
-[ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="5_3kqpj"]
-[ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://scenes/player.tscn" id="6_ctr0d"]
-[ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/killzone.tscn" id="7_1gkoa"]
+[ext_resource type="Texture2D" uid="uid://jb0x23xqt4pi" path="res://assets/Background/sky_cloud.png" id="1_gsodh"]
+[ext_resource type="Texture2D" uid="uid://damn4836pyjsy" path="res://assets/Background/mountain2.png" id="2_lfcfu"]
+[ext_resource type="Texture2D" uid="uid://ctkdjgbo870nr" path="res://assets/Background/pine1.png" id="3_ubc4w"]
+[ext_resource type="Texture2D" uid="uid://cud66bnt0btmu" path="res://assets/Background/pine2.png" id="4_a5oaj"]
+[ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="5_gutyf"]
+[ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://scenes/player.tscn" id="6_gnavk"]
+[ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/killzone.tscn" id="7_lvtsu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_apx3t"]
-texture = ExtResource("5_3kqpj")
+texture = ExtResource("5_gutyf")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -434,7 +434,7 @@ sources/0 = SubResource("TileSetAtlasSource_apx3t")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o0vtp"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -444,7 +444,7 @@ motion_mirroring = Vector2(344, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_mm77p")
+texture = ExtResource("1_gsodh")
 centered = false
 
 [node name="Mountains" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -453,7 +453,7 @@ motion_mirroring = Vector2(344, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountains"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_svkcp")
+texture = ExtResource("2_lfcfu")
 centered = false
 offset = Vector2(0, 100)
 
@@ -463,7 +463,7 @@ motion_mirroring = Vector2(344, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Pine1"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_toc7m")
+texture = ExtResource("3_ubc4w")
 centered = false
 offset = Vector2(0, 140)
 
@@ -472,7 +472,7 @@ motion_mirroring = Vector2(344, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Pine2"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_bpuld")
+texture = ExtResource("4_a5oaj")
 centered = false
 offset = Vector2(0, 180)
 
@@ -481,7 +481,7 @@ tile_set = SubResource("TileSet_hoixe")
 format = 2
 layer_0/tile_data = PackedInt32Array(524288, 131072, 0, 524289, 131072, 0, 524290, 131072, 2, 524291, 131072, 2, 524292, 131072, 0, 524293, 589824, 1, 524294, 655360, 1, 524295, 720896, 1, 589824, 196608, 1, 655360, 131072, 1, 720896, 131072, 1, 720897, 131072, 1, 720898, 131072, 1, 720899, 131072, 1, 720900, 196608, 1, 655364, 196608, 0, 589828, 131072, 1, 589827, 196608, 1, 589826, 131072, 1, 589825, 131072, 1, 655361, 196608, 0, 655362, 196608, 1, 655363, 131072, 1, 524296, 131072, 0, 524297, 196608, 0, 458761, 131072, 1, 393225, 196608, 1, 327689, 131072, 0, 327690, 131072, 2, 327692, 131072, 2, 327691, 131072, 2, 393226, 131072, 1, 458762, 131072, 1, 524298, 131072, 1, 589834, 131072, 1, 655370, 131072, 1, 720906, 196608, 0, 720905, 131072, 1, 720904, 196608, 1, 655368, 131072, 1, 589832, 131072, 1, 589833, 196608, 0, 655369, 131072, 1, 655371, 131072, 1, 524299, 196608, 1, 524300, 131072, 1, 458764, 196608, 0, 393228, 131072, 1, 393227, 196608, 0, 458763, 131072, 1, 720907, 131072, 1, 720908, 131072, 1, 655372, 196608, 1, 589836, 131072, 1, 589840, 131072, 0, 589841, 131072, 0, 589842, 131072, 0, 655376, 196608, 1, 720912, 131072, 1, 720913, 196608, 1, 720914, 131072, 1, 655378, 131072, 1, 655377, 131072, 1, 589835, 131072, 1)
 
-[node name="Player" parent="." instance=ExtResource("6_ctr0d")]
+[node name="Player" parent="." instance=ExtResource("6_gnavk")]
 position = Vector2(17, 119)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -492,7 +492,7 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 
-[node name="Killzone" parent="." instance=ExtResource("7_1gkoa")]
+[node name="Killzone" parent="." instance=ExtResource("7_lvtsu")]
 position = Vector2(78, 188)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]

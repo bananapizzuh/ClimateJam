@@ -1,16 +1,16 @@
 [gd_scene load_steps=19 format=3 uid="uid://b7sssiccjvteu"]
 
-[ext_resource type="PackedScene" uid="uid://bgv5v2fxqlswe" path="res://scenes/platform.tscn" id="2_7prm0"]
-[ext_resource type="Texture2D" uid="uid://jb0x23xqt4pi" path="res://assets/Background/sky_cloud.png" id="3_axyp7"]
-[ext_resource type="Texture2D" uid="uid://damn4836pyjsy" path="res://assets/Background/mountain2.png" id="4_kmnty"]
-[ext_resource type="Texture2D" uid="uid://ctkdjgbo870nr" path="res://assets/Background/pine1.png" id="5_5kdjb"]
-[ext_resource type="Texture2D" uid="uid://cud66bnt0btmu" path="res://assets/Background/pine2.png" id="6_gdrew"]
-[ext_resource type="Script" path="res://scripts/testarea.gd" id="7_iw2xk"]
-[ext_resource type="Texture2D" uid="uid://bd7xoye8qbxp3" path="res://assets/buttons/keyboard/ARROWDOWN.png" id="8_n1chk"]
-[ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="9_hmwn6"]
-[ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/killzone.tscn" id="10_1hof3"]
-[ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://scenes/player.tscn" id="11_u8mgf"]
-[ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="11_x60bi"]
+[ext_resource type="PackedScene" uid="uid://bgv5v2fxqlswe" path="res://scenes/platform.tscn" id="1_5jyqt"]
+[ext_resource type="Texture2D" uid="uid://jb0x23xqt4pi" path="res://assets/Background/sky_cloud.png" id="2_ebcmn"]
+[ext_resource type="Texture2D" uid="uid://damn4836pyjsy" path="res://assets/Background/mountain2.png" id="3_6x3fd"]
+[ext_resource type="Texture2D" uid="uid://ctkdjgbo870nr" path="res://assets/Background/pine1.png" id="4_j60mx"]
+[ext_resource type="Texture2D" uid="uid://cud66bnt0btmu" path="res://assets/Background/pine2.png" id="5_qgr6o"]
+[ext_resource type="Script" path="res://scripts/testarea.gd" id="6_p01tg"]
+[ext_resource type="Texture2D" uid="uid://bd7xoye8qbxp3" path="res://assets/buttons/keyboard/ARROWDOWN.png" id="7_4honv"]
+[ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="8_qq7w7"]
+[ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/killzone.tscn" id="9_mxif7"]
+[ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://scenes/player.tscn" id="10_2sjc5"]
+[ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="11_qkm6h"]
 
 [sub_resource type="Animation" id="Animation_u4ew5"]
 resource_name = "Move_Platform"
@@ -56,7 +56,7 @@ size = Vector2(36.5, 45.5)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c40q7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vco8h"]
-texture = ExtResource("11_x60bi")
+texture = ExtResource("11_qkm6h")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -470,11 +470,11 @@ texture = ExtResource("11_x60bi")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_vco8h")
 
-[node name="Leval1" type="Node2D"]
+[node name="Level1" type="Node2D"]
 
 [node name="Platforms" type="Node" parent="."]
 
-[node name="Platform" parent="Platforms" instance=ExtResource("2_7prm0")]
+[node name="Platform" parent="Platforms" instance=ExtResource("1_5jyqt")]
 position = Vector2(244, 110)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform"]
@@ -491,7 +491,7 @@ motion_mirroring = Vector2(344, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_axyp7")
+texture = ExtResource("2_ebcmn")
 centered = false
 
 [node name="Mountains" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -500,7 +500,7 @@ motion_mirroring = Vector2(344, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountains"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_kmnty")
+texture = ExtResource("3_6x3fd")
 centered = false
 offset = Vector2(0, 100)
 
@@ -510,7 +510,7 @@ motion_mirroring = Vector2(344, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Pine1"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_5kdjb")
+texture = ExtResource("4_j60mx")
 centered = false
 offset = Vector2(0, 140)
 
@@ -519,14 +519,14 @@ motion_mirroring = Vector2(344, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Pine2"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_gdrew")
+texture = ExtResource("5_qgr6o")
 centered = false
 offset = Vector2(0, 180)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(140, 120)
 collision_mask = 2
-script = ExtResource("7_iw2xk")
+script = ExtResource("6_p01tg")
 timeline_path = "res://dialogic/timelines/timeline.dtl"
 metadata/_edit_group_ = true
 
@@ -535,7 +535,7 @@ shape = SubResource("RectangleShape2D_ye06p")
 
 [node name="ButtonSprite" type="Sprite2D" parent="Area2D"]
 position = Vector2(0, -22)
-texture = ExtResource("8_n1chk")
+texture = ExtResource("7_4honv")
 
 [node name="Labels" type="Node" parent="."]
 
@@ -544,7 +544,7 @@ offset_left = -40.0
 offset_top = 104.0
 offset_right = 87.0
 offset_bottom = 172.0
-theme_override_fonts/normal_font = ExtResource("9_hmwn6")
+theme_override_fonts/normal_font = ExtResource("8_qq7w7")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "[center]Press the left and right arrow keys to move.
@@ -555,19 +555,19 @@ offset_left = 119.0
 offset_top = 62.0
 offset_right = 271.0
 offset_bottom = 122.0
-theme_override_fonts/normal_font = ExtResource("9_hmwn6")
+theme_override_fonts/normal_font = ExtResource("8_qq7w7")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "[center]Press the up arrow key to jump.
 [img=24]res://assets/buttons/keyboard/ARROWUP.png[/img][/center]"
 
-[node name="Killzone" parent="." instance=ExtResource("10_1hof3")]
+[node name="Killzone" parent="." instance=ExtResource("9_mxif7")]
 position = Vector2(78, 188)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_c40q7")
 
-[node name="Player" parent="." instance=ExtResource("11_u8mgf")]
+[node name="Player" parent="." instance=ExtResource("10_2sjc5")]
 position = Vector2(108, 128)
 metadata/_edit_group_ = true
 

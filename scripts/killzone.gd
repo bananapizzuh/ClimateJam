@@ -1,17 +1,10 @@
 extends Area2D
 
-@onready var timer = $Timer
 
-signal player_death
-
-func _on_body_entered(body):
-	print("You died!")
-	Engine.time_scale = 0.5
-	body.get_node("CollisionShape2D").queue_free()
-	timer.start()
-
-
-func _on_timer_timeout():
-	Engine.time_scale = 1.0
-	emit_signal("player_death")
-
+func _on_body_entered(_body):
+	SceneManager.change_scene(
+		SceneManager._current_scene,
+		SceneManager.create_options(0.1),
+		SceneManager.create_options(0.1),
+		SceneManager.create_general_options()
+	)
