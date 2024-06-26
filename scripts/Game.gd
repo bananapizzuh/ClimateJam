@@ -1,38 +1,36 @@
 extends Node2D
 
-var leval_instence
-
+@onready var leval_instence
+@onready var leval_load
 # Called when the node enters the scene tree for the first time.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
+func load_leval(location : String):
+	print("res://Levals/" + location + ".tscn")
+	leval_load = load("res://Levals/" + location + ".tscn")
+	leval_instence = leval_load.instantiate()
+	add_child(leval_instence)
+	print_tree()
+	var killzone = leval_instence.get_node("Killzone")
+	killzone.player_death.connect(_on_player_death)
+	print(leval_instence)
 
 func _on_button_pressed():
-	unlode_leval()
 	load_leval("leval_1")
 
 
 func _on_button_2_pressed():
-	unlode_leval()
+	print("pressed")
 	load_leval("leval_2")
 
-
-func _on_button_3_pressed():
-	unlode_leval()
-
-
-func unlode_leval():
-	if (is_instance_valid(leval_instence)):
-		leval_instence.queue_free()
-	leval_instence = null
-
-func load_leval(name : String):
-	unlode_leval()
-	var path := "res://Levals/%s.tscn" % name
-	var loaded_path := load(path)
-	if (loaded_path):
-		leval_instence = loaded_path.instantiate()
-		add_child(leval_instence)
+func  _on_player_death():
+	print("death recived")
+	leval_instence.queue_free()
+	leval_instence = leval_load.instantiate()
+	add_child(leval_instence)
+	var killzone = leval_instence.get_node("Killzone")
+	killzone.player_death.connect(_on_player_death)
+	
 
