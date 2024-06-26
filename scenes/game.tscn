@@ -1,117 +1,34 @@
-[gd_scene load_steps=13 format=3 uid="uid://cuv4vme4rwno0"]
+[gd_scene load_steps=2 format=3 uid="uid://cuv4vme4rwno0"]
 
-[ext_resource type="Texture2D" uid="uid://jb0x23xqt4pi" path="res://assets/Background/sky_cloud.png" id="1_75kkw"]
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_13038"]
-[ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://scenes/player.tscn" id="1_rbmkf"]
-[ext_resource type="Texture2D" uid="uid://damn4836pyjsy" path="res://assets/Background/mountain2.png" id="2_tfqo6"]
-[ext_resource type="Texture2D" uid="uid://ctkdjgbo870nr" path="res://assets/Background/pine1.png" id="3_mynm7"]
-[ext_resource type="Texture2D" uid="uid://cud66bnt0btmu" path="res://assets/Background/pine2.png" id="4_ki7hv"]
-[ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/killzone.tscn" id="5_x8euu"]
-[ext_resource type="Script" path="res://scripts/testarea.gd" id="6_xhum8"]
-[ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="7_8cblx"]
-[ext_resource type="Texture2D" uid="uid://bd7xoye8qbxp3" path="res://assets/buttons/keyboard/ARROWDOWN.png" id="7_ncmbt"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cn5tm"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fsk0m"]
-size = Vector2(36.5, 45.5)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_13038")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="Button" type="Button" parent="."]
+z_index = -1
+offset_left = 170.0
+offset_top = 290.0
+offset_right = 386.0
+offset_bottom = 357.0
+text = "Leval 1"
 
-[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0, 0)
-motion_mirroring = Vector2(344, 0)
+[node name="Button2" type="Button" parent="."]
+z_index = -1
+offset_left = 777.0
+offset_top = 307.0
+offset_right = 993.0
+offset_bottom = 374.0
+text = "Leval 2
+"
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_75kkw")
-centered = false
+[node name="Button3" type="Button" parent="."]
+offset_left = 1033.0
+offset_top = 8.0
+offset_right = 1143.0
+offset_bottom = 58.0
+text = "Menue"
 
-[node name="Mountains" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.25, 0.25)
-motion_mirroring = Vector2(344, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountains"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_tfqo6")
-centered = false
-offset = Vector2(0, 100)
-
-[node name="Pine1" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.5, 0.5)
-motion_mirroring = Vector2(344, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Pine1"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_mynm7")
-centered = false
-offset = Vector2(0, 140)
-
-[node name="Pine2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(344, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Pine2"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_ki7hv")
-centered = false
-offset = Vector2(0, 180)
-
-[node name="Player" parent="." instance=ExtResource("1_rbmkf")]
-position = Vector2(108, 128)
-metadata/_edit_group_ = true
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(4, 4)
-process_callback = 0
-limit_bottom = 180
-limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 4.0
-
-[node name="Killzone" parent="." instance=ExtResource("5_x8euu")]
-position = Vector2(78, 188)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-shape = SubResource("WorldBoundaryShape2D_cn5tm")
-
-[node name="Labels" type="Node" parent="."]
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Labels"]
-offset_left = -33.0
-offset_top = 73.0
-offset_right = 94.0
-offset_bottom = 141.0
-theme_override_fonts/normal_font = ExtResource("7_8cblx")
-theme_override_font_sizes/normal_font_size = 8
-bbcode_enabled = true
-text = "[center]Press the left and right arrow keys to move.
-[img=24]res://assets/buttons/keyboard/ARROWLEFT.png[/img][img=24]res://assets/buttons/keyboard/ARROWRIGHT.png[/img][/center]"
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="Labels"]
-offset_left = 46.0
-offset_top = 56.0
-offset_right = 198.0
-offset_bottom = 116.0
-theme_override_fonts/normal_font = ExtResource("7_8cblx")
-theme_override_font_sizes/normal_font_size = 8
-bbcode_enabled = true
-text = "[center]Press the up arrow key to jump.
-[img=24]res://assets/buttons/keyboard/ARROWUP.png[/img][/center]"
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(244, 112)
-collision_mask = 2
-script = ExtResource("6_xhum8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_fsk0m")
-
-[node name="ButtonSprite" type="Sprite2D" parent="Area2D"]
-position = Vector2(0, -22)
-texture = ExtResource("7_ncmbt")
-
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

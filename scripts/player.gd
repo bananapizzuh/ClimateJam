@@ -17,7 +17,7 @@ var paused = false
 @export var Jump_Buffer_Time: float  = 0.2
 
 var jump_buffer:bool = false
-var able_to_jump:bool = false 
+var able_to_jump:bool = false
 
 func _physics_process(delta):
 	if paused:
