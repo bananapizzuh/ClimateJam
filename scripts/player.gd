@@ -6,6 +6,11 @@ const WALL_JUMP_VELOCITY = -250.0
 const MIDAIR_SPEED = 100.0
 const FRICTION = 0.2
 
+@export var jump_buffer_time: float = 0.2
+
+var jump_buffer: bool = false
+var able_to_jump: bool = false
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var paused = false
@@ -14,18 +19,10 @@ var paused = false
 @onready var collision_shape = $CollisionShape2D
 @onready var wall_jump_timer = $WallJumpTimer
 
-@export var Jump_Buffer_Time: float  = 0.2
-
-var jump_buffer:bool = false
-var able_to_jump:bool = false
 
 func _physics_process(delta):
 	if paused:
 		return
-
-
-
-
 
 	# jump stuuf
 	if not is_on_floor():
@@ -39,29 +36,21 @@ func _physics_process(delta):
 			jump_buffer = false
 		else:
 			jump_buffer = true
-			get_tree().create_timer(Jump_Buffer_Time).timeout.connect(on_jump_buffer)
+			get_tree().create_timer(jump_buffer_time).timeout.connect(on_jump_buffer)
 	if able_to_jump and jump_buffer:
 		velocity.y = JUMP_VELOCITY
 		jump_buffer = false
-	
+
 	if is_on_floor():
 		able_to_jump = true
-	else: 
+	else:
 		able_to_jump = false
-
-
-
-
 
 	# direction change
 	if direction > 0:
 		animated_sprite.flip_h = false
 	elif direction < 0:
 		animated_sprite.flip_h = true
-
-
-
-
 
 	# wall jump stuff
 	var wall_direction = 1 if animated_sprite.flip_h else -1
@@ -76,10 +65,6 @@ func _physics_process(delta):
 		elif velocity.y > 0:
 			velocity.y = lerp(velocity.y, 0.0, FRICTION)
 
-
-
-
-
 	#idle stuff
 	if is_on_floor():
 		if direction == 0:
@@ -88,10 +73,6 @@ func _physics_process(delta):
 			animated_sprite.play("run")
 	else:
 		animated_sprite.play("jump")
-
-
-
-
 
 	# more jump stuff I GESS
 	if direction:
@@ -104,15 +85,8 @@ func _physics_process(delta):
 	elif not is_on_wall() and wall_jump_timer.time_left <= 0.0:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-
-
-
-
 	move_and_slide()
 
 
-
-
-
 func on_jump_buffer():
-		jump_buffer = false
+	jump_buffer = false
