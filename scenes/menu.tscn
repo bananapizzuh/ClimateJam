@@ -14,15 +14,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -108.0
-offset_top = -33.5
-offset_right = 108.0
-offset_bottom = 33.5
+offset_left = 201.0
+offset_top = 299.0
+offset_right = 417.0
+offset_bottom = 366.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Leval 1"
 
 [node name="Button2" type="Button" parent="."]
+layout_mode = 0
 offset_left = 777.0
 offset_top = 307.0
 offset_right = 993.0
@@ -31,6 +32,7 @@ text = "Leval 2
 "
 
 [node name="Button3" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1033.0
 offset_top = 8.0
 offset_right = 1143.0

@@ -20,8 +20,8 @@ config/icon="res://icon.svg"
 Music="*res://scenes/music.tscn"
 SceneManager="*res://addons/scene_manager/scene_manager.tscn"
 Scenes="*res://addons/scene_manager/scenes.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 <<<<<<<UpdatedupstreamSceneManager="*res://addons/scene_manager/scene_manager.tscn"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
