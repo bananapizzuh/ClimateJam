@@ -1,17 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgv5v2fxqlswe"]
+[gd_scene load_steps=4 format=3 uid="uid://bgv5v2fxqlswe"]
 
 [ext_resource type="Texture2D" uid="uid://cxuqjimd7csiq" path="res://assets/sprites/platforms.png" id="1_7q5sl"]
+[ext_resource type="Script" path="res://scripts/platform.gd" id="1_h2vqy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13ihi"]
 size = Vector2(32, 8)
 
-[node name="Platform" type="AnimatableBody2D"]
+[node name="Platform" type="Path2D"]
+script = ExtResource("1_h2vqy")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+
+[node name="StaticBody2D" type="CharacterBody2D" parent="PathFollow2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/StaticBody2D"]
 texture = ExtResource("1_7q5sl")
 region_enabled = true
 region_rect = Rect2(16, 0, 32, 9)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/StaticBody2D"]
 shape = SubResource("RectangleShape2D_13ihi")
 one_way_collision = true
