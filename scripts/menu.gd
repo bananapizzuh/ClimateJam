@@ -25,6 +25,17 @@ func _on_button_2_pressed():
 			SceneManager.create_general_options()
 		)
 
+
+func _on_button_4_pressed():
+	if get_saved_game() >= 3:
+		SceneManager.change_scene(
+			"level_3",
+			SceneManager.create_options(0.5),
+			SceneManager.create_options(0.5),
+			SceneManager.create_general_options()
+		)
+
+
 func save_game(leval_unlocked : int):
 	var new_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	print(str(leval_unlocked))
@@ -33,3 +44,4 @@ func save_game(leval_unlocked : int):
 func get_saved_game():
 	var file = FileAccess.open("user://savegame.save", FileAccess.READ)
 	return int(file.get_as_text())
+

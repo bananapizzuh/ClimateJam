@@ -24,11 +24,20 @@ text = "Leval 1"
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 777.0
-offset_top = 307.0
-offset_right = 993.0
-offset_bottom = 374.0
+offset_left = 508.0
+offset_top = 299.0
+offset_right = 724.0
+offset_bottom = 366.0
 text = "Leval 2
+"
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 813.0
+offset_top = 299.0
+offset_right = 1029.0
+offset_bottom = 366.0
+text = "Leval 3
 "
 
 [node name="Button3" type="Button" parent="."]
@@ -41,3 +50,4 @@ text = "Menue"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
