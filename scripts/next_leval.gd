@@ -1,29 +1,17 @@
-extends Control
-
-func _ready():
-	if not FileAccess.file_exists("user://savegame.save"):
-		save_game(1)
-	print(get_saved_game())
+extends Area2D
 
 
-func _on_button_pressed():
+
+func _on_body_entered(_body):
+	print("emterted")
 	SceneManager.change_scene(
-		"level_1",
+		"menu",
 		SceneManager.create_options(0.5),
 		SceneManager.create_options(0.5),
 		SceneManager.create_general_options()
 	)
-	save_game(2)
-
-
-func _on_button_2_pressed():
-	if get_saved_game() >= 2:
-		SceneManager.change_scene(
-			"level_2",
-			SceneManager.create_options(0.5),
-			SceneManager.create_options(0.5),
-			SceneManager.create_general_options()
-		)
+	if int(SceneManager._current_scene) <= get_saved_game():
+		save_game(int(SceneManager._current_scene) + 1)
 
 func save_game(leval_unlocked : int):
 	var new_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)

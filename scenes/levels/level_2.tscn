@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bfaepgdqm0vsy"]
+[gd_scene load_steps=13 format=3 uid="uid://bfaepgdqm0vsy"]
 
 [ext_resource type="Texture2D" uid="uid://jb0x23xqt4pi" path="res://assets/Background/sky_cloud.png" id="1_gsodh"]
 [ext_resource type="Texture2D" uid="uid://damn4836pyjsy" path="res://assets/Background/mountain2.png" id="2_lfcfu"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="5_gutyf"]
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://scenes/player.tscn" id="6_gnavk"]
 [ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/killzone.tscn" id="7_lvtsu"]
+[ext_resource type="Script" path="res://scripts/next_leval.gd" id="8_4ydif"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_apx3t"]
 texture = ExtResource("5_gutyf")
@@ -434,6 +435,9 @@ sources/0 = SubResource("TileSetAtlasSource_apx3t")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o0vtp"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjd00"]
+size = Vector2(51, 38)
+
 [node name="Level2" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -497,3 +501,13 @@ position = Vector2(78, 188)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_o0vtp")
+
+[node name="Next_leval" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("8_4ydif")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Next_leval"]
+position = Vector2(279, 121)
+shape = SubResource("RectangleShape2D_qjd00")
+
+[connection signal="body_entered" from="Next_leval" to="Next_leval" method="_on_body_entered"]
