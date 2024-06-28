@@ -583,6 +583,10 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 
+[node name="Timer" type="Timer" parent="Player"]
+wait_time = 0.08
+one_shot = true
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_46lf4")
 format = 2

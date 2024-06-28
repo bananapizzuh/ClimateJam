@@ -498,6 +498,10 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 
+[node name="Timer" type="Timer" parent="Player"]
+wait_time = 0.8
+one_shot = true
+
 [node name="Killzone" parent="." instance=ExtResource("4_l0j3y")]
 position = Vector2(78, 188)
 
