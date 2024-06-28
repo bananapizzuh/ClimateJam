@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bcbxkv407pq50"]
+[gd_scene load_steps=14 format=3 uid="uid://bcbxkv407pq50"]
 
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="1_evwqj"]
 [ext_resource type="PackedScene" uid="uid://bgv5v2fxqlswe" path="res://scenes/platform.tscn" id="2_rvq82"]
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://scenes/player.tscn" id="3_ygww2"]
 [ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/killzone.tscn" id="4_l0j3y"]
-[ext_resource type="Script" path="res://scripts/next_leval.gd" id="5_no10a"]
+[ext_resource type="PackedScene" uid="uid://dsg4mchggnvtl" path="res://scenes/win_area.tscn" id="5_g0buo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xompm"]
 texture = ExtResource("1_evwqj")
@@ -424,6 +424,27 @@ texture = ExtResource("1_evwqj")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_xompm")
 
+[sub_resource type="Curve2D" id="Curve2D_jqu6e"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, -70)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_6h3se"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(83, -280)]
+}
+
 [sub_resource type="Animation" id="Animation_bj205"]
 resource_name = "new_animation"
 length = 3.0
@@ -441,21 +462,6 @@ tracks/0/keys = {
 "values": [Vector2(83, -280), Vector2(83, -404)]
 }
 
-[sub_resource type="Animation" id="Animation_6h3se"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(83, -280)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_77tuf"]
 _data = {
 "RESET": SubResource("Animation_6h3se"),
@@ -465,8 +471,8 @@ _data = {
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_et5tt"]
 distance = -4.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3e8rw"]
-size = Vector2(51, 38)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md3mx"]
+size = Vector2(50, 50)
 
 [node name="Level3" type="Node2D"]
 
@@ -479,6 +485,7 @@ layer_0/tile_data = PackedInt32Array(-196608, 262144, 0, -196607, 262144, 0, -19
 
 [node name="Platform" parent="Platforms" instance=ExtResource("2_rvq82")]
 position = Vector2(83, -280)
+curve = SubResource("Curve2D_jqu6e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform"]
 libraries = {
@@ -498,10 +505,6 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 
-[node name="Timer" type="Timer" parent="Player"]
-wait_time = 0.8
-one_shot = true
-
 [node name="Killzone" parent="." instance=ExtResource("4_l0j3y")]
 position = Vector2(78, 188)
 
@@ -509,12 +512,8 @@ position = Vector2(78, 188)
 position = Vector2(-3, -192)
 shape = SubResource("WorldBoundaryShape2D_et5tt")
 
-[node name="Next_leval" type="Area2D" parent="."]
-collision_mask = 2
-script = ExtResource("5_no10a")
+[node name="WinArea" parent="." instance=ExtResource("5_g0buo")]
+position = Vector2(80, -380)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Next_leval"]
-position = Vector2(84, -433)
-shape = SubResource("RectangleShape2D_3e8rw")
-
-[connection signal="body_entered" from="Next_leval" to="Next_leval" method="_on_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
+shape = SubResource("RectangleShape2D_md3mx")

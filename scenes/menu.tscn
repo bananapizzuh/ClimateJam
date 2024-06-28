@@ -11,41 +11,40 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 201.0
-offset_top = 299.0
-offset_right = 417.0
-offset_bottom = 366.0
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 0
 
-[node name="Button2" type="Button" parent="."]
-layout_mode = 0
-offset_left = 508.0
-offset_top = 299.0
-offset_right = 724.0
-offset_bottom = 366.0
-text = "Leval 2
+[node name="Level 1" type="Button" parent="Levels"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Level 1"
+
+[node name="Level 2" type="Button" parent="Levels"]
+layout_mode = 2
+text = "Level 2
 "
 
-[node name="Button4" type="Button" parent="."]
-layout_mode = 0
-offset_left = 813.0
-offset_top = 299.0
-offset_right = 1029.0
-offset_bottom = 366.0
-text = "Leval 3
+[node name="Level 3" type="Button" parent="Levels"]
+layout_mode = 2
+text = "Level 3"
+
+[node name="Options" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -99.0
+offset_top = 23.0
+offset_right = -29.0
+offset_bottom = 54.0
+grow_horizontal = 0
+text = "Options
 "
 
-[node name="Button3" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1033.0
-offset_top = 8.0
-offset_right = 1143.0
-offset_bottom = 58.0
-text = "Menue"
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
->>>>>>> 6820b91fa2e7332122f3b7f4ed82040d77ac6fa1
+[connection signal="pressed" from="Levels/Level 1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Levels/Level 2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="Levels/Level 3" to="." method="_on_level_3_pressed"]

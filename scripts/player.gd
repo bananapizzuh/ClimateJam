@@ -7,7 +7,6 @@ const MIDAIR_SPEED = 100.0
 const FRICTION = 0.2
 
 @export var jump_buffer_time: float = 0.2
-@export var cyotie_time: float = 0.2
 
 var jump_buffer: bool = false
 var able_to_jump: bool = false
@@ -19,7 +18,8 @@ var paused = false
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var collision_shape = $CollisionShape2D
 @onready var wall_jump_timer = $WallJumpTimer
-@onready var cyoty_timer = $Timer
+@onready var coyote_timer = $CoyoteTimer
+
 
 func _physics_process(delta):
 	if paused:
@@ -32,12 +32,13 @@ func _physics_process(delta):
 	var direction = Input.get_axis("move_left", "move_right")
 
 	if Input.is_action_just_pressed("jump"):
-		if able_to_jump || !cyoty_timer.is_stopped():
+		if able_to_jump || !coyote_timer.is_stopped():
 			velocity.y = JUMP_VELOCITY
 			jump_buffer = false
 		else:
 			jump_buffer = true
 			get_tree().create_timer(jump_buffer_time).timeout.connect(on_jump_buffer)
+
 	if able_to_jump and jump_buffer:
 		velocity.y = JUMP_VELOCITY
 		jump_buffer = false
@@ -91,7 +92,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 	if was_on_floor && !is_on_floor():
-		cyoty_timer.start()
+		coyote_timer.start()
 
 
 func on_jump_buffer():
