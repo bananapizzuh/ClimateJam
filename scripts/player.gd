@@ -38,11 +38,10 @@ func _physics_process(delta):
 		else:
 			jump_buffer = true
 			get_tree().create_timer(jump_buffer_time).timeout.connect(on_jump_buffer)
-
 	if able_to_jump and jump_buffer:
 		velocity.y = JUMP_VELOCITY
 		jump_buffer = false
-
+	
 	if is_on_floor():
 		able_to_jump = true
 	else:

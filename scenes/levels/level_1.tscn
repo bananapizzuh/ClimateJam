@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b7sssiccjvteu"]
+[gd_scene load_steps=20 format=3 uid="uid://b7sssiccjvteu"]
 
 [ext_resource type="PackedScene" uid="uid://bgv5v2fxqlswe" path="res://scenes/platform.tscn" id="1_5jyqt"]
 [ext_resource type="Texture2D" uid="uid://jb0x23xqt4pi" path="res://assets/Background/sky_cloud.png" id="2_ebcmn"]
@@ -6,12 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://ctkdjgbo870nr" path="res://assets/Background/pine1.png" id="4_j60mx"]
 [ext_resource type="Texture2D" uid="uid://cud66bnt0btmu" path="res://assets/Background/pine2.png" id="5_qgr6o"]
 [ext_resource type="Texture2D" uid="uid://bd7xoye8qbxp3" path="res://assets/buttons/keyboard/ARROWDOWN.png" id="7_4honv"]
+[ext_resource type="Script" path="res://scripts/speed_run_timmer.gd" id="8_6i6xv"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="8_qq7w7"]
 [ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/killzone.tscn" id="9_mxif7"]
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://scenes/player.tscn" id="10_2sjc5"]
 [ext_resource type="Script" path="res://scripts/dialog_area.gd" id="10_ynm6l"]
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="11_qkm6h"]
-[ext_resource type="PackedScene" uid="uid://dsg4mchggnvtl" path="res://scenes/win_area.tscn" id="12_qcf4d"]
+[ext_resource type="PackedScene" path="res://scenes/win_area.tscn" id="12_qcf4d"]
 
 [sub_resource type="Curve2D" id="Curve2D_waoui"]
 _data = {
@@ -515,16 +516,28 @@ text = "[center]Press the up arrow key to jump.
 [img=24]res://assets/buttons/keyboard/ARROWUP.png[/img][/center]"
 
 [node name="Player" parent="." instance=ExtResource("10_2sjc5")]
-position = Vector2(103, 112)
-metadata/_edit_group_ = true
+position = Vector2(104, 112)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
 process_callback = 0
 limit_bottom = 180
 limit_smoothed = true
-position_smoothing_enabled = true
 position_smoothing_speed = 4.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Player/CanvasLayer"]
+anchors_preset = -1
+anchor_top = 0.029
+anchor_right = 0.149
+anchor_bottom = 0.066
+offset_top = -0.792
+offset_right = 0.35199
+offset_bottom = 0.231998
+theme_override_fonts/normal_font = ExtResource("8_qq7w7")
+text = "00:00:00"
+script = ExtResource("8_6i6xv")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(0, -32)
