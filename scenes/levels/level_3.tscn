@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://bcbxkv407pq50"]
+[gd_scene load_steps=16 format=3 uid="uid://bcbxkv407pq50"]
 
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="1_evwqj"]
 [ext_resource type="PackedScene" uid="uid://bgv5v2fxqlswe" path="res://scenes/platform.tscn" id="2_rvq82"]
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://scenes/player.tscn" id="3_ygww2"]
+[ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="4_0yyhv"]
 [ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/killzone.tscn" id="4_l0j3y"]
 [ext_resource type="PackedScene" path="res://scenes/win_area.tscn" id="5_g0buo"]
+[ext_resource type="Script" path="res://scripts/speed_run_timmer.gd" id="5_m4kh2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xompm"]
 texture = ExtResource("1_evwqj")
@@ -504,6 +506,20 @@ limit_bottom = 180
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Player/CanvasLayer"]
+anchors_preset = -1
+anchor_top = 0.029
+anchor_right = 0.149
+anchor_bottom = 0.066
+offset_top = -0.792
+offset_right = 0.35199
+offset_bottom = 0.231998
+theme_override_fonts/normal_font = ExtResource("4_0yyhv")
+text = "00:00:00"
+script = ExtResource("5_m4kh2")
 
 [node name="Killzone" parent="." instance=ExtResource("4_l0j3y")]
 position = Vector2(78, 188)
