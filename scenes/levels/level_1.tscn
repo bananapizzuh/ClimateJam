@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://scenes/player.tscn" id="10_2sjc5"]
 [ext_resource type="Script" path="res://scripts/dialog_area.gd" id="10_ynm6l"]
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="11_qkm6h"]
-[ext_resource type="PackedScene" path="res://scenes/win_area.tscn" id="12_qcf4d"]
+[ext_resource type="PackedScene" uid="uid://dsg4mchggnvtl" path="res://scenes/win_area.tscn" id="12_qcf4d"]
 
 [sub_resource type="Curve2D" id="Curve2D_waoui"]
 _data = {
