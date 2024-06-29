@@ -1,17 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://b7sssiccjvteu"]
+[gd_scene load_steps=21 format=3 uid="uid://b7sssiccjvteu"]
 
 [ext_resource type="PackedScene" uid="uid://bgv5v2fxqlswe" path="res://scenes/platform.tscn" id="1_5jyqt"]
+[ext_resource type="PackedScene" uid="uid://cprh273q1utrs" path="res://scenes/hud_manager.tscn" id="1_8jhbv"]
 [ext_resource type="Texture2D" uid="uid://jb0x23xqt4pi" path="res://assets/Background/sky_cloud.png" id="2_ebcmn"]
 [ext_resource type="Texture2D" uid="uid://damn4836pyjsy" path="res://assets/Background/mountain2.png" id="3_6x3fd"]
 [ext_resource type="Texture2D" uid="uid://ctkdjgbo870nr" path="res://assets/Background/pine1.png" id="4_j60mx"]
 [ext_resource type="Texture2D" uid="uid://cud66bnt0btmu" path="res://assets/Background/pine2.png" id="5_qgr6o"]
-[ext_resource type="Texture2D" uid="uid://bd7xoye8qbxp3" path="res://assets/buttons/keyboard/ARROWDOWN.png" id="7_4honv"]
-[ext_resource type="Script" path="res://scripts/speed_run_timmer.gd" id="8_6i6xv"]
-[ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="8_qq7w7"]
 [ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/killzone.tscn" id="9_mxif7"]
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://scenes/player.tscn" id="10_2sjc5"]
 [ext_resource type="Script" path="res://scripts/dialog_area.gd" id="10_ynm6l"]
+[ext_resource type="Texture2D" uid="uid://cjuxf68hcfeg4" path="res://assets/buttons/keyboard/downarrow.png" id="11_lus37"]
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="11_qkm6h"]
+[ext_resource type="Texture2D" uid="uid://dclklooxti4ae" path="res://assets/StrangeMan Idle.png" id="12_hc6wf"]
 [ext_resource type="PackedScene" uid="uid://dsg4mchggnvtl" path="res://scenes/win_area.tscn" id="12_qcf4d"]
 
 [sub_resource type="Curve2D" id="Curve2D_waoui"]
@@ -440,10 +440,17 @@ sources/0 = SubResource("TileSetAtlasSource_vco8h")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ye06p"]
 size = Vector2(36.5, 45.5)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hinm4"]
+atlas = ExtResource("12_hc6wf")
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3htf"]
 size = Vector2(50, 50)
 
 [node name="Level1" type="Node2D"]
+
+[node name="HUDManager" parent="." instance=ExtResource("1_8jhbv")]
+unique_name_in_owner = true
 
 [node name="Platforms" type="Node" parent="."]
 
@@ -491,30 +498,6 @@ texture = ExtResource("5_qgr6o")
 centered = false
 offset = Vector2(0, 180)
 
-[node name="Labels" type="Node" parent="."]
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Labels"]
-offset_left = -40.0
-offset_top = 104.0
-offset_right = 87.0
-offset_bottom = 172.0
-theme_override_fonts/normal_font = ExtResource("8_qq7w7")
-theme_override_font_sizes/normal_font_size = 8
-bbcode_enabled = true
-text = "[center]Press the left and right arrow keys to move.
-[img=24]res://assets/buttons/keyboard/ARROWLEFT.png[/img][img=24]res://assets/buttons/keyboard/ARROWRIGHT.png[/img][/center]"
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="Labels"]
-offset_left = 73.0
-offset_top = 41.0
-offset_right = 225.0
-offset_bottom = 101.0
-theme_override_fonts/normal_font = ExtResource("8_qq7w7")
-theme_override_font_sizes/normal_font_size = 8
-bbcode_enabled = true
-text = "[center]Press the up arrow key to jump.
-[img=24]res://assets/buttons/keyboard/ARROWUP.png[/img][/center]"
-
 [node name="Player" parent="." instance=ExtResource("10_2sjc5")]
 position = Vector2(104, 112)
 
@@ -524,20 +507,6 @@ process_callback = 0
 limit_bottom = 180
 limit_smoothed = true
 position_smoothing_speed = 4.0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Player/CanvasLayer"]
-anchors_preset = -1
-anchor_top = 0.029
-anchor_right = 0.149
-anchor_bottom = 0.066
-offset_top = -0.792
-offset_right = 0.35199
-offset_bottom = 0.231998
-theme_override_fonts/normal_font = ExtResource("8_qq7w7")
-text = "00:00:00"
-script = ExtResource("8_6i6xv")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(0, -32)
@@ -552,7 +521,7 @@ position = Vector2(78, 188)
 shape = SubResource("WorldBoundaryShape2D_c40q7")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(250, 15)
+position = Vector2(140, 97)
 collision_mask = 2
 script = ExtResource("10_ynm6l")
 timeline_path = "res://dialogic/timelines/timeline.dtl"
@@ -562,8 +531,11 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_ye06p")
 
 [node name="ButtonSprite" type="Sprite2D" parent="Area2D"]
-position = Vector2(0, -22)
-texture = ExtResource("7_4honv")
+position = Vector2(2, -25)
+texture = ExtResource("11_lus37")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = SubResource("AtlasTexture_hinm4")
 
 [node name="WinArea" parent="." instance=ExtResource("12_qcf4d")]
 position = Vector2(299, 42)

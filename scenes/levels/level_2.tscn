@@ -1,15 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://bfaepgdqm0vsy"]
+[gd_scene load_steps=14 format=3 uid="uid://bfaepgdqm0vsy"]
 
+[ext_resource type="PackedScene" uid="uid://cprh273q1utrs" path="res://scenes/hud_manager.tscn" id="1_an35x"]
 [ext_resource type="Texture2D" uid="uid://jb0x23xqt4pi" path="res://assets/Background/sky_cloud.png" id="1_gsodh"]
 [ext_resource type="Texture2D" uid="uid://damn4836pyjsy" path="res://assets/Background/mountain2.png" id="2_lfcfu"]
 [ext_resource type="Texture2D" uid="uid://ctkdjgbo870nr" path="res://assets/Background/pine1.png" id="3_ubc4w"]
 [ext_resource type="Texture2D" uid="uid://cud66bnt0btmu" path="res://assets/Background/pine2.png" id="4_a5oaj"]
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="5_gutyf"]
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://scenes/player.tscn" id="6_gnavk"]
-[ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="7_ef71m"]
 [ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/killzone.tscn" id="7_lvtsu"]
 [ext_resource type="PackedScene" uid="uid://dsg4mchggnvtl" path="res://scenes/win_area.tscn" id="8_maytv"]
-[ext_resource type="Script" path="res://scripts/speed_run_timmer.gd" id="8_pvk11"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_apx3t"]
 texture = ExtResource("5_gutyf")
@@ -442,6 +441,9 @@ size = Vector2(51, 38)
 
 [node name="Level2" type="Node2D"]
 
+[node name="HUDManager" parent="." instance=ExtResource("1_an35x")]
+unique_name_in_owner = true
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -498,20 +500,6 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Player/CanvasLayer"]
-anchors_preset = -1
-anchor_top = 0.029
-anchor_right = 0.149
-anchor_bottom = 0.066
-offset_top = -0.792
-offset_right = 0.35199
-offset_bottom = 0.231998
-theme_override_fonts/normal_font = ExtResource("7_ef71m")
-text = "00:00:00"
-script = ExtResource("8_pvk11")
-
 [node name="Killzone" parent="." instance=ExtResource("7_lvtsu")]
 position = Vector2(78, 188)
 
@@ -519,7 +507,7 @@ position = Vector2(78, 188)
 shape = SubResource("WorldBoundaryShape2D_o0vtp")
 
 [node name="WinArea" parent="." instance=ExtResource("8_maytv")]
+position = Vector2(281, 126)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
-position = Vector2(279, 121)
 shape = SubResource("RectangleShape2D_qjd00")

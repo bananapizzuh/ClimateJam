@@ -1,33 +1,24 @@
 extends Area2D
 
-
 func _on_body_entered(_body):
-	if int(SceneManager._current_scene) <= get_saved_game():
-		save_game(int(SceneManager._current_scene) + 1)
+# ==============================================================================
+# Change the scene to the main menu and increment the saved level if the player has won
+	if int(SceneManager._current_scene) <= SaveManager.get_saved_level():
+		SaveManager.save_level(int(SceneManager._current_scene) + 1)
 
 	get_parent().queue_free()
-	if get_saved_game() >= 3 && int(SceneManager._current_scene) == 3:
+	if SaveManager.get_saved_level() >= 3&&int(SceneManager._current_scene) == 3:
 		SceneManager.change_scene(
-			"win",
+			"victory_screen",
 			SceneManager.create_options(0.5),
 			SceneManager.create_options(0.5),
 			SceneManager.create_general_options()
 		)
 	else:
 		SceneManager.change_scene(
-			"menu",
+			"level_" + str(SaveManager.get_saved_level()),
 			SceneManager.create_options(0.5),
 			SceneManager.create_options(0.5),
 			SceneManager.create_general_options()
 		)
-
-
-func save_game(level_unlocked: int):
-	var new_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
-	print(str(level_unlocked))
-	new_file.store_line(str(level_unlocked))
-
-
-func get_saved_game():
-	var file = FileAccess.open("user://savegame.save", FileAccess.READ)
-	return int(file.get_as_text())
+# ==============================================================================

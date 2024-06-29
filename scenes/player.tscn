@@ -186,9 +186,9 @@ autoplay = "idle"
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_bvcm0")
 
-[node name="WallJumpTimer" type="Timer" parent="."]
+[node name="JumpBufferTimer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 0.4
+wait_time = 0.05
 one_shot = true
 
 [node name="CoyoteTimer" type="Timer" parent="."]

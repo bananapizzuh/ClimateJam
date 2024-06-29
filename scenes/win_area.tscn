@@ -1,10 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsg4mchggnvtl"]
+[gd_scene load_steps=4 format=3 uid="uid://dsg4mchggnvtl"]
 
 [ext_resource type="Script" path="res://scripts/win_area.gd" id="1_s2e5e"]
+[ext_resource type="Texture2D" uid="uid://bped01tsjeycn" path="res://assets/sprites/coin.png" id="2_l5e27"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jtp5"]
+atlas = ExtResource("2_l5e27")
+region = Rect2(0, 0, 16, 16)
 
 [node name="WinArea" type="Area2D"]
 collision_mask = 2
 script = ExtResource("1_s2e5e")
 metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_0jtp5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd7xoye8qbxp3"
-path="res://.godot/imported/ARROWDOWN.png-532a957f35c18911e61476d8d8a994c7.ctex"
+uid="uid://cjuxf68hcfeg4"
+path="res://.godot/imported/downarrow.png-8130d31b3c7bcc0b8b36f6152840a85b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/keyboard/ARROWDOWN.png"
-dest_files=["res://.godot/imported/ARROWDOWN.png-532a957f35c18911e61476d8d8a994c7.ctex"]
+source_file="res://assets/buttons/keyboard/downarrow.png"
+dest_files=["res://.godot/imported/downarrow.png-8130d31b3c7bcc0b8b36f6152840a85b.ctex"]
 
 [params]
 

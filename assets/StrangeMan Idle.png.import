@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db73c3b8ayppt"
-path="res://.godot/imported/ARROWUP.png-fbe010aa6aa68bd337bd76be53684b76.ctex"
+uid="uid://dclklooxti4ae"
+path="res://.godot/imported/StrangeMan Idle.png-1ff375f3be6ef612501fcdbffe51470e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buttons/keyboard/ARROWUP.png"
-dest_files=["res://.godot/imported/ARROWUP.png-fbe010aa6aa68bd337bd76be53684b76.ctex"]
+source_file="res://assets/StrangeMan Idle.png"
+dest_files=["res://.godot/imported/StrangeMan Idle.png-1ff375f3be6ef612501fcdbffe51470e.ctex"]
 
 [params]
 
