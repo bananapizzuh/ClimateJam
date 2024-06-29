@@ -27,3 +27,14 @@ script = ExtResource("2_0mrra")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(124, 26)
 zoom = Vector2(4, 4)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 60.0
+offset_top = 64.0
+offset_right = 195.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("1_baab2")
+theme_override_font_sizes/font_size = 11
+text = "Return to menu"
+
+[connection signal="pressed" from="Button" to="RichTextLabel2" method="_on_button_pressed"]

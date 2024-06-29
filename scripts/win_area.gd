@@ -6,12 +6,20 @@ func _on_body_entered(_body):
 		save_game(int(SceneManager._current_scene) + 1)
 
 	get_parent().queue_free()
-	SceneManager.change_scene(
-		"menu",
-		SceneManager.create_options(0.5),
-		SceneManager.create_options(0.5),
-		SceneManager.create_general_options()
-	)
+	if get_saved_game() >= 3 && int(SceneManager._current_scene) == 3:
+		SceneManager.change_scene(
+			"win",
+			SceneManager.create_options(0.5),
+			SceneManager.create_options(0.5),
+			SceneManager.create_general_options()
+		)
+	else:
+		SceneManager.change_scene(
+			"menu",
+			SceneManager.create_options(0.5),
+			SceneManager.create_options(0.5),
+			SceneManager.create_general_options()
+		)
 
 
 func save_game(level_unlocked: int):

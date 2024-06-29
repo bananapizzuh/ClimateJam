@@ -12,6 +12,8 @@ func _ready():
 	minutes = int(saved_times[1])
 	hours = int(saved_times[0])
 	text = add_zero(String.num(hours)) + ":" + add_zero(String.num(minutes)) + ":" + add_zero(String.num(secs))
+	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -28,3 +30,12 @@ func add_zero(number: String):
 func get_saved_time():
 	var file = FileAccess.open("user://savetime.save", FileAccess.READ)
 	return file.get_as_text()
+
+
+func _on_button_pressed():
+	SceneManager.change_scene(
+		"menu",
+		SceneManager.create_options(0.5),
+		SceneManager.create_options(0.5),
+		SceneManager.create_general_options()
+	)
