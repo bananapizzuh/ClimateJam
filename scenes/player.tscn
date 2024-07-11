@@ -120,6 +120,7 @@ radius = 5.0
 z_index = 5
 collision_layer = 2
 script = ExtResource("1_ofpvf")
+midair_speed = 120.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -9)
@@ -138,5 +139,5 @@ wait_time = 0.05
 one_shot = true
 
 [node name="CoyoteTimer" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.1
 one_shot = true

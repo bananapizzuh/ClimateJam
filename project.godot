@@ -64,6 +64,7 @@ layout/default_style="res://dialogic/styles/Default_Style.tres"
 
 [display]
 
+window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 
 [editor_plugins]

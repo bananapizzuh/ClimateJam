@@ -91,6 +91,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and not is_on_wall():
 		if coyote_time or is_on_floor():
 			jump_buffer = false
+			coyote_time = false
 			velocity.y = jump_velocity
 		# If the player jumps and does not have coyote time or is not on the floor, enable the jump buffer
 		else:
@@ -142,7 +143,7 @@ func _physics_process(delta):
 
 # ==============================================================================
 # Actually move the player
-
+	print(coyote_timer.time_left)
 	move_and_slide()
 
 # ==============================================================================
