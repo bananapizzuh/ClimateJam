@@ -23,12 +23,17 @@ var interacted_with: bool = false
 # ==============================================================================
 
 func _ready():
+	load_timeline(style_path, timeline_path)
+
+func load_timeline(new_style_path: String, new_timeline_path: String):
 # ==============================================================================
 # Preload the timeline and style to avoid lag and hide button on start
 
-	var style: DialogicStyle = load(style_path)
+	var style: DialogicStyle = load(new_style_path)
 	style.prepare()
-	Dialogic.preload_timeline(timeline_path)
+	Dialogic.preload_timeline(new_timeline_path)
+
+	timeline_path = new_timeline_path
 
 	button_sprite.hide()
 

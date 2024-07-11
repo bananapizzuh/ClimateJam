@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b7sssiccjvteu"]
+[gd_scene load_steps=37 format=3 uid="uid://b7sssiccjvteu"]
 
 [ext_resource type="PackedScene" uid="uid://cprh273q1utrs" path="res://scenes/hud_manager.tscn" id="1_8jhbv"]
 [ext_resource type="Texture2D" uid="uid://bti6do1venax4" path="res://assets/ciber_1/Backgrounds/bg_00.png" id="3_g703l"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cjuxf68hcfeg4" path="res://assets/buttons/keyboard/downarrow.png" id="11_lus37"]
 [ext_resource type="Texture2D" uid="uid://dclklooxti4ae" path="res://assets/StrangeMan Idle.png" id="12_hc6wf"]
 [ext_resource type="PackedScene" uid="uid://dsg4mchggnvtl" path="res://scenes/win_area.tscn" id="12_qcf4d"]
+[ext_resource type="Script" path="res://scripts/golden_scroll.gd" id="13_i4mc1"]
 [ext_resource type="Texture2D" uid="uid://4qgqu6a86a45" path="res://assets/ciber_1/tileset.png" id="13_rfoma"]
 [ext_resource type="Texture2D" uid="uid://cky5sx7eajjyx" path="res://assets/ciber_1/Build.png" id="14_jptem"]
 [ext_resource type="Texture2D" uid="uid://cavclyawd8hn7" path="res://assets/ciber_1/Decor/170x32_spr_heaven_sign_02_strip4.png" id="15_8c81c"]
@@ -29,7 +30,7 @@ atlas = ExtResource("12_hc6wf")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3htf"]
-size = Vector2(50, 50)
+size = Vector2(15, 20)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1aw6o"]
 texture = ExtResource("13_rfoma")
@@ -4298,7 +4299,8 @@ centered = false
 offset = Vector2(0, 180)
 
 [node name="Player" parent="." instance=ExtResource("10_2sjc5")]
-position = Vector2(104, 112)
+position = Vector2(104, 143)
+metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
@@ -4313,7 +4315,8 @@ position = Vector2(78, 188)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_c40q7")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="MayorBlum" type="Area2D" parent="."]
+unique_name_in_owner = true
 z_index = 2
 position = Vector2(339, 128)
 collision_mask = 2
@@ -4321,30 +4324,43 @@ script = ExtResource("10_ynm6l")
 timeline_path = "res://dialogic/timelines/blem-1.dtl"
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MayorBlum"]
 shape = SubResource("RectangleShape2D_ye06p")
 
-[node name="ButtonSprite" type="Sprite2D" parent="Area2D"]
+[node name="ButtonSprite" type="Sprite2D" parent="MayorBlum"]
 position = Vector2(2, -25)
 texture = ExtResource("11_lus37")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="MayorBlum"]
 texture = SubResource("AtlasTexture_hinm4")
 
-[node name="PointLight2D2" type="PointLight2D" parent="Area2D"]
+[node name="PointLight2D2" type="PointLight2D" parent="MayorBlum"]
 position = Vector2(-108, -58)
 scale = Vector2(0.492188, 0.367188)
 color = Color(0.978731, 0.889325, 7.70092e-07, 1)
 energy = 1.45
 texture = ExtResource("16_s6h0f")
 
-[node name="WinArea" parent="." instance=ExtResource("12_qcf4d")]
+[node name="GoldenScroll" parent="." instance=ExtResource("12_qcf4d")]
 position = Vector2(-177, -218)
+script = ExtResource("13_i4mc1")
+timeline_path = "res://dialogic/timelines/blem-2.dtl"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoldenScroll"]
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_w3htf")
 
-[node name="Fore_ground" type="TileMap" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="GoldenScroll"]
+position = Vector2(-6.10352e-05, -0.000427246)
+scale = Vector2(0.875002, 0.65625)
+color = Color(0.978731, 0.889325, 7.70092e-07, 1)
+energy = 0.59
+texture = ExtResource("16_s6h0f")
+texture_scale = 0.91
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Tileset" type="TileMap" parent="World"]
 position = Vector2(-2, 0)
 tile_set = SubResource("TileSet_q1qha")
 format = 2
@@ -4352,33 +4368,27 @@ layer_0/tile_data = PackedInt32Array(589824, 327680, 3, 589825, 327680, 3, 58982
 layer_1/tile_data = PackedInt32Array(262164, 2883585, 39, 196620, 2359297, 39, 196621, 2424833, 39, 458764, 917505, 30, 458765, 1048577, 30)
 layer_2/tile_data = PackedInt32Array(327692, 1572865, 37, 393228, 1572865, 38, 458764, 1572865, 39, 524300, 1572865, 40, 327693, 1638401, 37, 393229, 1638401, 38, 458765, 1638401, 39, 524301, 1638401, 40, 327694, 1703937, 37, 393230, 1703937, 38, 458766, 1703937, 39, 524302, 1703937, 40, 327695, 1769473, 37, 393231, 1769473, 38, 458767, 1769473, 39, 524303, 1769473, 40, 327696, 1835009, 37, 393232, 1835009, 38, 458768, 1835009, 39, 524304, 1835009, 40, 327689, 65536, 1, 393225, 65536, 2, 458761, 65536, 3, 524297, 65536, 4, 327690, 131072, 1, 262153, 65536, 0, 327688, 0, 1, 262124, 327680, 11, 262125, 393216, 11, 131056, 327680, 13, 131057, 393216, 13, 131058, 458752, 13, -262162, 589824, 12, -196626, 589824, 13, -262161, 524288, 13, -458766, 786432, 6, -458765, 917504, 6)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Fan" type="AnimatedSprite2D" parent="World"]
 position = Vector2(310, 56)
 sprite_frames = SubResource("SpriteFrames_ncffh")
 autoplay = "default"
 frame_progress = 0.932141
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+[node name="Lights" type="AnimatedSprite2D" parent="World"]
 position = Vector2(230, 75.125)
 scale = Vector2(0.576471, 0.617188)
 sprite_frames = SubResource("SpriteFrames_wrkge")
 autoplay = "default"
 frame_progress = 0.229098
 
-[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D2"]
-position = Vector2(-706.02, -474.937)
-scale = Vector2(1.51786, 1.06329)
-color = Color(0.978731, 0.889325, 7.70092e-07, 1)
-energy = 0.59
-texture = ExtResource("16_s6h0f")
-texture_scale = 0.91
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Buildings" type="Sprite2D" parent="World"]
 z_index = -1
 position = Vector2(159, 10)
 texture = ExtResource("16_olqw0")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="TextLabels" type="Node2D" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextLabels"]
 offset_left = -123.0
 offset_top = 62.0
 offset_right = -40.0
@@ -4388,17 +4398,17 @@ theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "[center]Use Up Arrow to jump"
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="."]
-offset_left = 76.0
-offset_top = 93.0
-offset_right = 176.0
-offset_bottom = 133.0
+[node name="RichTextLabel2" type="RichTextLabel" parent="TextLabels"]
+offset_left = -5.0
+offset_top = 76.0
+offset_right = 95.0
+offset_bottom = 116.0
 theme_override_fonts/normal_font = ExtResource("16_00krs")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "[center]Use Arrow Keys to Move"
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+[node name="RichTextLabel3" type="RichTextLabel" parent="TextLabels"]
 offset_left = -240.0
 offset_top = 59.0
 offset_right = -157.0
@@ -4408,5 +4418,5 @@ theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "[center]Use Up Arrow and Movment Arrows to wall jump and climb"
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="MayorBlum" to="MayorBlum" method="_on_body_entered"]
+[connection signal="body_exited" from="MayorBlum" to="MayorBlum" method="_on_body_exited"]
