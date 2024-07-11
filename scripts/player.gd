@@ -54,9 +54,9 @@ func _physics_process(delta):
 
 	# If the player is moving left, flip the sprite horizontally
 	if direction > 0:
-		animated_sprite.flip_h = false
-	elif direction < 0:
 		animated_sprite.flip_h = true
+	elif direction < 0:
+		animated_sprite.flip_h = false
 
 	# If the player is not moving and on the floor, play the run animation
 	# If the player is moving and on the floor, play the run animation

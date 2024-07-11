@@ -4356,7 +4356,7 @@ position = Vector2(230, 75.125)
 scale = Vector2(0.576471, 0.617188)
 sprite_frames = SubResource("SpriteFrames_wrkge")
 autoplay = "default"
-frame_progress = 0.0582676
+frame_progress = 0.229098
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D2"]
 position = Vector2(1.73468, -8.3038)
