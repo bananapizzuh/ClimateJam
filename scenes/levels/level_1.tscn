@@ -4384,8 +4384,9 @@ offset_top = 62.0
 offset_right = -40.0
 offset_bottom = 102.0
 theme_override_fonts/normal_font = ExtResource("16_00krs")
-theme_override_font_sizes/normal_font_size = 10
-text = "Use Up Arrow to jump"
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[center]Use Up Arrow to jump"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
 offset_left = 76.0
@@ -4393,8 +4394,9 @@ offset_top = 93.0
 offset_right = 176.0
 offset_bottom = 133.0
 theme_override_fonts/normal_font = ExtResource("16_00krs")
-theme_override_font_sizes/normal_font_size = 10
-text = "Use Arrow Keys to Move"
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[center]Use Arrow Keys to Move"
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="."]
 offset_left = -240.0
@@ -4402,8 +4404,9 @@ offset_top = 59.0
 offset_right = -157.0
 offset_bottom = 147.0
 theme_override_fonts/normal_font = ExtResource("16_00krs")
-theme_override_font_sizes/normal_font_size = 10
-text = "Use Up Arrow and Movment Arrows to wall jump and climb"
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[center]Use Up Arrow and Movment Arrows to wall jump and climb"
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
