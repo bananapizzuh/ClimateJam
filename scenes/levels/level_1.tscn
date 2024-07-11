@@ -524,7 +524,7 @@ shape = SubResource("WorldBoundaryShape2D_c40q7")
 position = Vector2(140, 97)
 collision_mask = 2
 script = ExtResource("10_ynm6l")
-timeline_path = "res://dialogic/timelines/timeline.dtl"
+timeline_path = "res://dialogic/timelines/blem-1.dtl"
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

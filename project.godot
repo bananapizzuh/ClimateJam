@@ -20,16 +20,24 @@ config/icon="res://icon.svg"
 Music="*res://scenes/music.tscn"
 SceneManager="*res://addons/scene_manager/scene_manager.tscn"
 Scenes="*res://addons/scene_manager/scenes.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 SaveManager="*res://scripts/save_manager.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
 directories/dch_directory={
-"test character": "res://dialogic/characters/test character.dch"
+"bjorn": "res://dialogic/characters/bjorn.dch",
+"blum": "res://dialogic/characters/blum.dch",
+"ceo": "res://dialogic/characters/ceo.dch",
+"schnee": "res://dialogic/characters/schnee.dch",
+"taco": "res://dialogic/characters/taco.dch"
 }
 directories/dtl_directory={
-"timeline": "res://dialogic/timelines/timeline.dtl"
+"bjorn-1": "res://dialogic/timelines/bjorn-1.dtl",
+"blem-1": "res://dialogic/timelines/blem-1.dtl",
+"blem-2": "res://dialogic/timelines/blem-2.dtl",
+"ceo-1": "res://dialogic/timelines/ceo-1.dtl",
+"schnee-1": "res://dialogic/timelines/schnee-1.dtl"
 }
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
