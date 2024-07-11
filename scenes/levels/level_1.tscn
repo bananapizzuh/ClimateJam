@@ -4331,6 +4331,13 @@ texture = ExtResource("11_lus37")
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 texture = SubResource("AtlasTexture_hinm4")
 
+[node name="PointLight2D2" type="PointLight2D" parent="Area2D"]
+position = Vector2(-108, -58)
+scale = Vector2(0.492188, 0.367188)
+color = Color(0.978731, 0.889325, 7.70092e-07, 1)
+energy = 1.45
+texture = ExtResource("16_s6h0f")
+
 [node name="WinArea" parent="." instance=ExtResource("12_qcf4d")]
 position = Vector2(-177, -218)
 
@@ -4359,11 +4366,12 @@ autoplay = "default"
 frame_progress = 0.229098
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D2"]
-position = Vector2(1.73468, -8.3038)
-scale = Vector2(0.853794, 0.594937)
+position = Vector2(-706.02, -474.937)
+scale = Vector2(1.51786, 1.06329)
 color = Color(0.978731, 0.889325, 7.70092e-07, 1)
-energy = 1.45
+energy = 0.59
 texture = ExtResource("16_s6h0f")
+texture_scale = 0.91
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
