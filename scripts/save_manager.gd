@@ -20,7 +20,7 @@ func read_save() -> Dictionary:
 # Read the save file and return the data
 
 	# Check if the save file exists, if not create a new one
-	if not FileAccess.file_exists("user://savegame.save"):
+	if FileAccess.file_exists("user://savegame.save"):
 		var new_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 		new_file.store_string(JSON.stringify(save))
 
