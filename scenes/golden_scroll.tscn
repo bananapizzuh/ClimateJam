@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsg4mchggnvtl"]
+
+[ext_resource type="Script" path="res://scripts/golden_scroll.gd" id="1_ffdiw"]
+[ext_resource type="Texture2D" uid="uid://bw04q2yj1po3a" path="res://assets/Golden_Scroll.png" id="2_imcsk"]
+
+[node name="Golden_scroll" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_ffdiw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 1.90735e-06)
+scale = Vector2(0.0859375, 0.0990099)
+texture = ExtResource("2_imcsk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -7,9 +7,11 @@ var collected: bool = SaveManager.get_saved_scroll()
 @onready var mayor_blum: Area2D = %MayorBlum
 
 func _ready():
+	print(collected)
 	if collected:
 		mayor_blum.load_timeline("res://dialogic/styles/Default_Style.tres", timeline_path)
 		mayor_blum.interacted_with = false
+		SaveManager.save_scroll(true)
 		queue_free()
 
 
