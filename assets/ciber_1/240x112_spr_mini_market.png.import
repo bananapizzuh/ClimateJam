@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8sx2xs82xfns"
-path="res://.godot/imported/240x112_spr_mini_market.png-ad7edc61561a7c70b94e100845687f98.ctex"
+path="res://.godot/imported/240x112_spr_mini_market.png-c06e17c6a8cfb204ac7fc18148cc234b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ciber_1/Market/240x112_spr_mini_market.png"
-dest_files=["res://.godot/imported/240x112_spr_mini_market.png-ad7edc61561a7c70b94e100845687f98.ctex"]
+source_file="res://assets/ciber_1/240x112_spr_mini_market.png"
+dest_files=["res://.godot/imported/240x112_spr_mini_market.png-c06e17c6a8cfb204ac7fc18148cc234b.ctex"]
 
 [params]
 

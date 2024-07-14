@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bfaepgdqm0vsy"]
+[gd_scene load_steps=30 format=3 uid="uid://bfaepgdqm0vsy"]
 
 [ext_resource type="PackedScene" uid="uid://cprh273q1utrs" path="res://scenes/hud_manager.tscn" id="1_an35x"]
 [ext_resource type="Texture2D" uid="uid://ctkdjgbo870nr" path="res://assets/Background/pine1.png" id="3_ubc4w"]
@@ -4273,6 +4273,9 @@ size = Vector2(39, 33)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mg3pt"]
 size = Vector2(152, 81)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_byvxe"]
+size = Vector2(57, 7)
+
 [node name="Level2" type="Node2D"]
 
 [node name="HUDManager" parent="." instance=ExtResource("1_an35x")]
@@ -4407,6 +4410,27 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(120, -46.5)
 shape = SubResource("RectangleShape2D_mg3pt")
+
+[node name="Killzone7" parent="." instance=ExtResource("7_lvtsu")]
+position = Vector2(78, 188)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone7"]
+position = Vector2(1444, -468)
+shape = SubResource("RectangleShape2D_72ol2")
+
+[node name="Killzone8" parent="." instance=ExtResource("7_lvtsu")]
+position = Vector2(1514, -123)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone8"]
+position = Vector2(8, -140)
+shape = SubResource("RectangleShape2D_72ol2")
+
+[node name="Killzone9" parent="." instance=ExtResource("7_lvtsu")]
+position = Vector2(78, 188)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone9"]
+position = Vector2(1522.5, -491.5)
+shape = SubResource("RectangleShape2D_byvxe")
 
 [connection signal="body_entered" from="PurpleCrystal" to="PurpleCrystal" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
