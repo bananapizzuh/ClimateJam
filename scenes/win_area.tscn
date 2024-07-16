@@ -1,7 +1,7 @@
 [gd_scene load_steps=86 format=3 uid="uid://dla2dbsmitdeb"]
 
 [ext_resource type="Texture2D" uid="uid://qa5f8purxcut" path="res://assets/ciber_1/Decor/spr_bus.png" id="1_magmb"]
-[ext_resource type="Script" path="res://scripts/win_area.gd" id="1_s2e5e"]
+[ext_resource type="Script" path="res://win_area.gd" id="1_s2e5e"]
 [ext_resource type="Texture2D" uid="uid://cky5sx7eajjyx" path="res://assets/ciber_1/Build.png" id="2_uc7m3"]
 [ext_resource type="Texture2D" uid="uid://yadmpk3yggj4" path="res://assets/ciber_1/Decor/184x16_spr_bus_stop_anim_strip77.png" id="3_62nsq"]
 [ext_resource type="Texture2D" uid="uid://8ftmnho1trym" path="res://assets/nutral_light.webp" id="4_yg70u"]
